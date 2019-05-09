@@ -1,8 +1,8 @@
 class Person {
-    constructor(personAtr) {
-        this.age = personAtr.age;
-        this.name = personAtr.name;
-        this.location = personAtr.location;
+    constructor(attr) {
+        this.age = attr.age;
+        this.name = attr.name;
+        this.location = attr.location;
     }
 
 speak() {
@@ -45,22 +45,29 @@ const josh = new Instructor({
 });
 
 class Student extends Person {
-    constructor(stuAttr) {
-        super(stuAttr);
-        this.previousBackground = stuAttr.previousBackground,
-        this.className = stuAttr.className,
-        this.favSubjects = stuAttr.favSubjects
+    constructor(attr) {
+        super(attr);
+        this.previousBackground = attr.previousBackground;
+        this.className = attr.className;
+        this.favSubjects = attr.favSubjects
     }
 
     listsSubjects() {
-        return `Log out ${this.favSubjects}`;
+        return `${this.favSubjects}`;
     }
     PRAssignment() {
-        return `${this.name} has submitted a PR or ${this.favSubjects}`;
+        return `${this.name} has submitted a PR or ${favSubjects}`;
     }
     sprintChallenge() {
         return `${this.name} has begun Sprint Challenge on ${this.favSubjects}`;
     }
 }
 
-// console.log(josh.grade(josh, 'english'))
+const katie = new Student({
+    favSubjects: 'English',
+    className: 'Web20',
+    previousBackground: 'Freelance Web Design'
+});
+
+console.log(josh.grade(josh, 'english'))
+console.log(katie.listsSubjects());
